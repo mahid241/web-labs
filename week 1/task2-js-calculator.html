@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Task 2 - JS Calculator</title>
+  <style>
+    body { font-family: Arial; max-width: 420px; margin: 20px auto; }
+    input { padding: 6px; width: 130px; }
+    .row { margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <h2>JS Calculator</h2>
+
+  <div class="row">
+    <label>X: <input id="x" type="number" value="0" /></label>
+  </div>
+  <div class="row">
+    <label>Y: <input id="y" type="number" value="0" /></label>
+  </div>
+  <div class="row">
+    <strong>Result: <span id="result">0</span></strong>
+  </div>
+
+  <script>
+    const xInput = document.getElementById('x');
+    const yInput = document.getElementById('y');
+    const resultSpan = document.getElementById('result');
+
+    function update() {
+      const x = Number(xInput.value || 0);
+      const y = Number(yInput.value || 0);
+      resultSpan.textContent = x + y;
+    }
+
+    xInput.addEventListener('input', update);
+    yInput.addEventListener('input', update);
+
+    update();
+  </script>
+</body>
+</html>

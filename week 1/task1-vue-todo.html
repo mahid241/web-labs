@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Task 1 - Vue Todo</title>
+  <script src="https://unpkg.com/vue@2.7.8/dist/vue.js"></script>
+  <style>
+    body { font-family: Arial; max-width: 520px; margin: 20px auto; }
+    input { padding: 6px; width: 70%; }
+    button { padding: 7px 10px; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <h2>Vue Todo List</h2>
+
+  <div id="app">
+    <div>
+      <input v-model="newTask" placeholder="Type a task..." />
+      <button @click="addTask">Add task</button>
+    </div>
+
+    <ul>
+      <li v-for="(t, i) in tasks" :key="i">{{ t }}</li>
+    </ul>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        tasks: ['Task 1', 'Task 2', 'Task 3'],
+        newTask: ''
+      },
+      methods: {
+        addTask() {
+          const text = this.newTask.trim();
+          if (text) {
+            this.tasks.push(text);
+            this.newTask = '';
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
